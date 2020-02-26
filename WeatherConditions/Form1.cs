@@ -95,6 +95,10 @@ namespace WeatherConditions
             {
                 return false;
             }
+            if (city.Any(char.IsDigit)) //added to validate that an error is given when a digit is entered
+            {
+                return false;
+            }
             //all checks passed? data looks good, return true
             return true;
 
@@ -125,6 +129,11 @@ namespace WeatherConditions
                 errorMessage = e.Message; //setting the out parameter
                 return false; //to inform the caller that there was an error
             }
+        }
+
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            this.Close(); //Closes app
         }
     }
 }
